@@ -1,0 +1,30 @@
+.upload__book {
+  margin-bottom: 10px;
+}
+
+.write__book {
+  margin-bottom: 10px;
+}
+
+.form__content {
+  display: flex;
+  flex-direction: column;
+}
+
+.title__book {
+  margin-bottom: 10px;
+}
+
+.description__book {
+  resize: none;
+  margin-bottom: 10px;
+}
+
+.container__form {
+  display: flex;
+  justify-content: space-between;
+}
+
+.add__book {
+  width: 40%;
+}

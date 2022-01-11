@@ -1,0 +1,14 @@
+body {
+  background: gray;
+}
+
+section {
+  width: 35%;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  padding: 10px;
+}

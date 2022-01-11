@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Библиотека книг</title>
+</head>
+
+<body>
+    <section class="add__book">
+        <h2 class="section__title">Добавить книгу</h2>
+        <form class="add__form" method="POST" enctype="multipart/form-data">
+            <label><input type="radio" name="add" class="upload__book">Загрузить книгу</label>
+            <label><input type="radio" name="add" class="write__book">Написать самому</label>
+            <div class="form__content"></div>
+        </form>
+    </section>
+
+    <script src="./js/add__book.js"></script>
+</body>
+
+</html>
