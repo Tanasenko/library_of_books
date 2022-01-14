@@ -1,0 +1,28 @@
+aside {
+  width: 50%;
+  float: right;
+  background: white;
+  padding: 15px;
+}
+
+aside .section__title {
+  margin-left: 35px;
+}
+
+.editTitle {
+  width: 40%;
+  padding: 5px;
+  margin-left: 34px;
+  margin-bottom: 15px;
+}
+
+.editText {
+  margin-left: 34px;
+  width: 80%;
+  padding: 5px;
+  margin-bottom: 15px;
+}
+
+.saveBtn {
+  margin-left: 34px;
+}

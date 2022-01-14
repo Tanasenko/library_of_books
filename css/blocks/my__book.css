@@ -1,0 +1,46 @@
+.my__book {
+  width: 40%;
+}
+
+.book__container {
+  background: #fff;
+  padding: 10px;
+}
+
+.book__item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.book__item:last-child {
+  margin-bottom: 0;
+}
+
+.book__item:hover {
+  background: wheat;
+  transition: 0.1s;
+}
+
+.book__title {
+  font-weight: bold;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.btn__tools {
+  text-transform: uppercase;
+  margin-right: 5px;
+  border: 2px solid black;
+  border-radius: 6px;
+}
+
+.btn__tools:last-child {
+  margin-right: 0;
+}
+
+.btn__tools:hover {
+  background: silver;
+  transition: 0.1s;
+  cursor: pointer;
+}
