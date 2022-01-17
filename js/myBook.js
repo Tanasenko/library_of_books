@@ -8,6 +8,7 @@ function loadBook() {
 
         var bookItem = document.createElement('div');
         bookItem.classList.add('book__item');
+        bookItem.setAttribute('draggable', 'true');
         bookContainer.append(bookItem);
 
         var bookTitle = document.createElement('span');

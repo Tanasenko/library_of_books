@@ -1,0 +1,11 @@
+.favorite__book {
+  width: 40%;
+}
+
+.favorite_book__container {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  padding: 10px;
+  min-height: 50px;
+}
