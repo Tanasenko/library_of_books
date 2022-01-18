@@ -6,6 +6,12 @@ var aside = document.querySelector('.aside');
 
 var bookContainer = document.querySelector('.book__container');
 
+function a() {
+    let keys = JSON.parse(localStorage.myBook);
+    for(let key in keys) {
+        myBook[key] = keys[key];
+    }
+}
 
 function editBook() { 
     for (let i = 0; i < editBtn.length; i++) {
@@ -14,6 +20,7 @@ function editBook() {
         elem.addEventListener('click', (e)=>{
             let bookKey = e.target.parentNode.previousSibling.innerText;
             let bookValue = localStorage.getItem(bookKey);
+            let targetItem = e.target.parentNode.parentNode;    // bookItem в котором лежит bookKey
 
             if (aside.innerHTML == "") {
 
@@ -35,9 +42,21 @@ function editBook() {
                 aside.append(saveBtn);
                 
                 saveBtn.addEventListener('click', ()=>{
-                    localStorage.removeItem(`${bookKey}`);
+                    let keys = JSON.parse(localStorage.myBook)
+                    for(let key in keys) {
+                        if (key == `${bookKey}`) {
+                            delete keys[key];
+                            localStorage.removeItem(myBook);
+                            localStorage.setItem('myBook', JSON.stringify(keys));
+                        }
+                    }
 
-                    localStorage.setItem(`${titleInput.value}`, `${textInput.value}`);
+                    targetItem.remove();
+
+                    a();
+                    myBook[`${titleInput.value}`] = `${textInput.value}`;
+                    
+                    localStorage.setItem('myBook', JSON.stringify(myBook));
 
                     var bookItem = document.createElement('div');
                     bookItem.classList.add('book__item');
@@ -73,8 +92,8 @@ function editBook() {
                     bookRemove.innerText = 'x';
                     bookTools.append(bookRemove);
 
-                    titleInput.value = '';
-                    textInput.value = '';
+                    aside.innerHTML = '';
+
                 })
 
             } else {
@@ -97,14 +116,27 @@ function editBook() {
                 saveBtn.classList.add('saveBtn');
                 saveBtn.innerText = 'Сохранить';
                 aside.append(saveBtn);
-
+                
                 saveBtn.addEventListener('click', ()=>{
-                    localStorage.removeItem(`${bookKey}`);
+                    let keys = JSON.parse(localStorage.myBook)
+                    for(let key in keys) {
+                        if (key == `${bookKey}`) {
+                            delete keys[key];
+                            localStorage.removeItem(myBook);
+                            localStorage.setItem('myBook', JSON.stringify(keys));
+                        }
+                    }
 
-                    localStorage.setItem(`${titleInput.value}`, `${textInput.value}`);
+                    targetItem.remove();
+
+                    a();
+                    myBook[`${titleInput.value}`] = `${textInput.value}`;
+                    
+                    localStorage.setItem('myBook', JSON.stringify(myBook));
 
                     var bookItem = document.createElement('div');
                     bookItem.classList.add('book__item');
+                    bookItem.setAttribute('draggable', 'true');
                     bookContainer.append(bookItem);
 
                     var bookTitle = document.createElement('span');
@@ -136,8 +168,7 @@ function editBook() {
                     bookRemove.innerText = 'x';
                     bookTools.append(bookRemove);
 
-                    titleInput.value = '';
-                    textInput.value = '';
+                    aside.innerHTML = '';
                 })
 
             }

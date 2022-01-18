@@ -5,6 +5,7 @@
 .book__container {
   background: #fff;
   padding: 10px;
+  min-height: 50px;
 }
 
 .book__item {

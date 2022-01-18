@@ -5,6 +5,15 @@ var formContent = document.querySelector('.form__content');
 
 var bookContainer = document.querySelector('.book__container');
 
+var myBook = {};
+
+function a() {
+    let keys = JSON.parse(localStorage.myBook);
+    for(let key in keys) {
+        myBook[key] = keys[key];
+    }
+}
+
 writeBook.addEventListener('click', ()=>{
     if (formContent.innerHTML == '') {
         makeBook();
@@ -50,13 +59,16 @@ function makeBook() {
         let book = {};
         book.login = titleBook.value;
         book.file = descriptionBook.value;
-        
-        localStorage.setItem(book.login, book.file);
+
+        a();
+        myBook[`${book.login}`] = `${book.file}`;        
+        localStorage.setItem('myBook', JSON.stringify(myBook));
 
         titleBook.value = '';
         descriptionBook.value = '';
 
         addToListBook(book.login)
+        window.location.reload();
     })
 }
 
@@ -123,13 +135,18 @@ function giveBook() {
 
         reader.onload = function() {
             let value = reader.result;
-            localStorage.setItem(key[1], value);
+            a()
+
+            myBook[`${key[1]}`] = `${value}`;        
+            localStorage.setItem('myBook', JSON.stringify(myBook));
         };
         
         addToListBook(key[1])
 
         titleBook.value = '';
         selectBook.value = '';
+        
+        window.location.reload();
     })
 }
 
