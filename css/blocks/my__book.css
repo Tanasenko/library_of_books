@@ -45,3 +45,7 @@
   transition: 0.1s;
   cursor: pointer;
 }
+
+.readBook {
+  margin-bottom: 10px;
+}

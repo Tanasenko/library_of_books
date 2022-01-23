@@ -6,6 +6,10 @@ var favBook = {};
 function dragstart_handler(ev) {
     ev.dataTransfer.setData("text/html", ev.target.outerHTML);
     ev.dataTransfer.dropEffect = "move";
+    setTimeout(()=>{
+        ev.target.remove();
+    }, 0)
+    
 }
 
 function dragover_handler(ev) {
@@ -15,7 +19,7 @@ function dragover_handler(ev) {
     
 function drop_handler(ev) { 
     ev.preventDefault();
-    var data = ev.dataTransfer.getData("text/html");  
+    var data = ev.dataTransfer.getData("text/html"); 
     this.insertAdjacentHTML('beforeend', data);
 
     dropForFav();
@@ -76,7 +80,7 @@ function dropForFav() {
             for(let item of favConteiner.children){
                 if (item.firstChild.textContent == myBook) {
                     q();
-                    favBook[`${myBook}`] = `${myBooks[myBook]}`;
+                    favBook[`${myBook}`] = myBooks[myBook];
                     localStorage.setItem('favBook', JSON.stringify(favBook));
 
                     delete myBooks[myBook];
@@ -105,7 +109,7 @@ function dropForMy() {
         for(let item of bookContainer.children){
             if (item.firstChild.textContent == favBook) {
                 a();
-                myBook[`${favBook}`] = `${favBooks[favBook]}`;
+                myBook[`${favBook}`] = favBooks[favBook];
                 localStorage.setItem('myBook', JSON.stringify(myBook));
 
                 delete favBooks[favBook];

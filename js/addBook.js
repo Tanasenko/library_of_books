@@ -61,7 +61,7 @@ function makeBook() {
         book.file = descriptionBook.value;
 
         a();
-        myBook[`${book.login}`] = `${book.file}`;        
+        myBook[`${book.login}`] = {text: `${book.file}`, read: false};        
         localStorage.setItem('myBook', JSON.stringify(myBook));
 
         titleBook.value = '';
@@ -135,9 +135,9 @@ function giveBook() {
 
         reader.onload = function() {
             let value = reader.result;
+            
             a()
-
-            myBook[`${key[1]}`] = `${value}`;        
+            myBook[`${key[1]}`] = {text: `${value}`, read: false};         
             localStorage.setItem('myBook', JSON.stringify(myBook));
         };
         
